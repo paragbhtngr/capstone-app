@@ -1,0 +1,91 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div(class='message')
+
+  div
+    include signup-form
+    
+  div
+    p By clicking on continue, you agree to our #[a(href="#tnc" data-uk-modal) Terms and Conditions].
+
+  button(class="uk-button" id="tncAccepted") Continue
+      
+  div(id="tnc" class="uk-modal")
+    div(class="uk-modal-dialog")
+      div(id="tos-header" class="tos-header")
+        div(id="header-text-div") Privacy and Terms
+      
+      div(id="tos-text" class="tos-text-div")
+        div(class="tos-intro-text-div")
+          p By choosing “I agree” below you agree to Google’s #[a(class="link1" href="https://accounts.google.com/TOS?loc=SG&amp;hl=en" data-link="tos" target="_blank") Terms of Service].
+          p You also agree to our #[a(class="link1" href="https://accounts.google.com/TOS?loc=SG&amp;hl=en&amp;privacy=true" data-link="privacy" target="_blank") Privacy Policy], which describes how we process your information, including these key points:
+          div(class="tos-intro-separator")
+      
+      div
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Data we process when you use Google
+        ul
+          li When you use Google services to do things like write a message in Gmail or comment on a YouTube video, we store the information you create.
+          li When you search for a restaurant on Google Maps or watch a video on YouTube, for example, we process information about that activity – including information like the video you watched, device IDs, IP addresses, cookie data, and location.
+          li We also process the kinds of information described above when you use apps or sites that use Google services like ads, Analytics, and the YouTube video player.
+          li 
+        p Depending on your account settings, some of this data may be associated with your Google Account and we treat this data as personal information. You can control how we collect and use this data at My Account (myaccount.google.com)
+        div(class="tos-par-separator")
+      
+      div
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Why we process it
+        p We process this data for the purposes described in 
+          a(class="link1" href="https://accounts.google.com/TOS?loc=SG&amp;hl=en&amp;privacy=true" data-link="privacy" target="_blank") our policy
+        p , including to:
+        ul
+          li Help our services deliver more useful, customized content such as more relevant search results;
+          li Improve the quality of our services and develop new ones;
+          li Deliver personalized ads, both on Google services and on sites and apps that partner with Google;
+          li Improve security by protecting against fraud and abuse; and
+          li Conduct analytics and measurement to understand how our services are used.
+        div(class="tos-par-separator")
+      
+      div
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Combining data
+        p We also combine data among our services and across your devices for these purposes. For example, we show you ads based on information from your use of Search and Gmail, and we use data from trillions of search queries to build spell-correction models that we use across all of our services.
+
+  script.
+  
+    // Form validation
+    console.log('Validation Script loaded');
+    $('input').blur(function() {
+      if( !$(this).val() ) {
+        $(this).addClass('uk-form-danger');
+        $('.message').addClass('uk-alert').addClass('uk-alert-danger').html('<p> Required input missing! Please complete. </p>');
+      } else if( $(this).val() ) {
+        if($(this).hasClass('uk-form-danger')) {
+          $(this).removeClass('uk-form-danger');
+        }
+      }
+    });
+    $('input').focus(function() {
+      if( $(this).val() ) {
+        if($(this).hasClass('uk-form-danger')) {
+          $(this).removeClass('uk-form-danger');
+        }
+      }
+    });
+  
+  script.
+    $('#is-tnc-clicked').val("false");
+    
+    $('#tncClicked').click(function(){
+      console.log('click dis');
+      $('#is-tnc-clicked').val("true");
+      $('#time-started').val($.now());
+    });
+
+    $('#tncAccepted').click(function(){
+      console.log('dis dude accepts shiz yo');
+      $('#time-accepted').val($.now());
+      console.log('Submitting form');
+      $('#signup-form')[0].submit();
+    });

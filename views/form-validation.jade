@@ -1,0 +1,116 @@
+
+script.
+  $('#tncClicked').click(function(){
+    console.log('Validating form now');
+    if(isValid()){
+      $('#tncClicked').attr('data-uk-modal',"{target:'#tnc'}");
+    } 
+  });
+
+  var isValid = function(){
+    var validity = true;
+    
+    if($('.message').hasClass('uk-alert') ) {
+      $('.message').removeClass('uk-alert').removeClass('uk-alert-danger').html("");
+    }
+
+    $('input').each(function(){
+      
+      // Check required fields first
+      
+      if($(this).attr('required') && $(this).val() == "") {
+        validity = false;
+        addError( $(this), "Required input missing! Please complete." );
+      } else {
+        removeError($(this));
+      }
+
+      // Check if password is complex and passwords match
+      if( $(this).attr('id') == "form-password" ) {
+        if(isValidPassword( $(this).val() )) {
+          removeError( $(this) );
+        } else {
+          validity = false;
+          addError( $(this), "Please enter a password with that is at least 8 characters long, with 1 uppercase character, 1 number and 1 special character" )
+        }
+      }
+
+      if( $(this).attr('id') == "form-passwordc" ) {
+        if( $(this).val() == $('#form-password').val() ) {
+          removeError( $(this) );
+        } else {
+          validity = false;
+          addError( $(this), "Passwords must match" )
+        }
+      }
+
+      // Validate date
+
+      if( $(this).attr('id') == "form-birthday" ) {
+        if( isValidDate( $(this).val() )) {
+          removeError( $(this) );
+        } else {
+          validity = false;
+          addError( $(this), "Please enter a valid date" )
+        }
+      }
+
+      
+
+    });
+    return validity;
+  }
+
+  var addError = function(element, error) {
+    if( !$('.message').hasClass('uk-alert') ) {
+      console.log("ADDING MESSAGE");
+      $('.message').addClass('uk-alert').addClass('uk-alert-danger').html('<p>'+ error +'</p>');
+    }
+    if(!element.hasClass('uk-form-danger')) {
+      console.log("ADDING ALERT");
+      element.addClass('uk-form-danger');
+    }
+  }
+
+  var removeError = function(element) {
+    
+
+    if(element.hasClass('uk-form-danger')) {
+      element.removeClass('uk-form-danger');
+    }
+  }
+
+  var isValidPassword = function(pwd){
+    return (pwd.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")? true : false );
+  }
+  var isValidDate = function(s) {
+    var validity = true
+    var bits = s.split('/');
+    var d = new Date(bits[2], bits[1] - 1, bits[0]);
+    validity = d && (d.getMonth() + 1) == bits[1];
+    if(validity) {
+      validity = (d < new Date($.now())) 
+    }
+    return validity;
+  } 
+  
+//- script.
+//-   // Form validation
+//-   console.log('Validation Script loaded');
+//-   $('input').blur(function() {
+//-     if( !$(this).val() ) {
+//-       $(this).addClass('uk-form-danger');
+//-       $('.message').addClass('uk-alert').addClass('uk-alert-danger').html('<p> Required input missing! Please complete. </p>');
+//-     } else if( $(this).val() ) {
+//-       if($(this).hasClass('uk-form-danger')) {
+//-         $(this).removeClass('uk-form-danger');
+//-       }
+//-     }
+//-   });
+//-   $('input').focus(function() {
+//-     if( $(this).val() ) {
+//-       if($(this).hasClass('uk-form-danger')) {
+//-         $(this).removeClass('uk-form-danger');
+//-       }
+//-     }
+//-   });

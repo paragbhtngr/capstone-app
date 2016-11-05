@@ -1,0 +1,129 @@
+extends layout
+
+block content
+  h1 WELCOME TO THE QUESTIONNAIRE
+
+  form.uk-form.uk-form-stacked(id="post-expt-questionnaire" action="/receive-post-expt-data" method="post")
+    //- input(type="hidden" value="")
+    fieldset(data-uk-margin)
+        legend Please answer the following questions
+        .uk-form-row
+            h3 What data by default does JimmySearch not collect from users?
+            input(type="radio" name="1" value="1" required) 
+            |  Hardware model
+            br
+            input(type="radio" name="1" value="2" required) 
+            |  Phone number
+            br
+            input(type="radio" name="1" value="3" required) 
+            |  Internet protocol address
+            br
+            input(type="radio" name="1" value="4" required) 
+            |  Location information
+            br
+            input(type="radio" name="1" value="5" required) 
+            |  There was no information about what data is collected
+            br
+        .uk-form-row
+            h3 Does JimmySearch combine data across multiple accounts from the same user?
+            input(type="radio" name="2" value="1" required) 
+            |  No, it does not
+            br
+            input(type="radio" name="2" value="2" required) 
+            |  Yes, it does
+            br
+            input(type="radio" name="2" value="3" required) 
+            |  You are not allowed to create multiple accounts
+            br
+            input(type="radio" name="2" value="4" required) 
+            |  There was no information about combining data
+            br
+        .uk-form-row
+            h3 Does JimmySearch combine data across multiple devices from the same account?
+            input(type="radio" name="3" value="1" required) 
+            |  Yes, it does
+            br
+            input(type="radio" name="3" value="2" required) 
+            |  No, it does not
+            br
+            input(type="radio" name="3" value="3" required) 
+            |  Signing into your account across multiple devices is not allowed
+            br
+            input(type="radio" name="3" value="4" required) 
+            |  There was no information about combining data
+            br
+        .uk-form-row
+            h3 Which of the following is not why JimmySearch processes your data?
+            input(type="radio" name="4" value="1" required) 
+            |  Help partner sites of JimmySearch deliver personalised ads
+            br
+            input(type="radio" name="4" value="2" required) 
+            |  Improve security
+            br
+            input(type="radio" name="4" value="3" required) 
+            |  Conduct analytics of JimmySearch service usage
+            br
+            input(type="radio" name="4" value="4" required) 
+            |  All of the above
+            br
+            input(type="radio" name="4" value="5" required) 
+            |  There was no information about why data is processed
+            br
+        .uk-form-row
+            h3 Can I customise how JimmySearch collects and uses my data ?
+            input(type="radio" name="5" value="1" required) 
+            |  There was no information about privacy customisation
+            br
+            input(type="radio" name="5" value="2" required) 
+            |  No, I cannot.
+            br
+            input(type="radio" name="5" value="3" required) 
+            |  Yes, I can.
+            br
+            input(type="radio" name="5" value="4" required) 
+            |  This is the fourth option for this question.
+            br
+            input(type="radio" name="5" value="5" required) 
+            |  This is the fifth option for this question.
+            br
+        .uk-form-row
+            h3 What profile visibility settings can you adjust on JimmySearch?
+            input(type="radio" name="6" value="1" required) 
+            |  Profile name is not shared with third-party applications
+            br
+            input(type="radio" name="6" value="2" required) 
+            |  Profile name is not shown on account reviews (anonymous reviews)
+            br
+            input(type="radio" name="6" value="3" required) 
+            |  Profile photo does not appear in an ad
+            br
+            input(type="radio" name="6" value="4" required) 
+            |  There was no information about profile visibility settings
+            br
+        .uk-form-row
+            h3 Does JimmySearch combine your search queries with other users’ search queries?
+            input(type="radio" name="7" value="1" required) 
+            |  No, it does not
+            br
+            input(type="radio" name="7" value="2" required) 
+            |  Yes, it does
+            br
+            input(type="radio" name="7" value="3" required) 
+            |  There was no information about combining search queries with others’
+            br
+        .uk-form-row
+            h3 Can you terminate your account when you wish to stop using JimmySearch services at any time?
+            input(type="radio" name="8" value="1" required) 
+            |  Yes, you can
+            br
+            input(type="radio" name="8" value="2" required) 
+            |  No, you cannot
+            br
+            input(type="radio" name="8" value="3" required) 
+            |  There was no information about account termination
+            br
+    
+        input(type="submit")
+
+script.
+    $('#post-expt-questionnaire').validate();

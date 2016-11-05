@@ -1,0 +1,189 @@
+extends layout
+
+block content
+  h1 WELCOME TO THE POST EXPT QUESTIONNAIRE
+
+  form.uk-form.uk-form-stacked(id="post-expt-questionnaire" action="/receive-post-expt-quest-data" method="post")
+    //- input(type="hidden" value="")
+    fieldset(data-uk-margin)
+        legend Please answer the following questions
+        .uk-form-row
+            h3  Did you read JimmySearch’s Terms and Conditions?
+            input(type="radio" name="1" value="1" required) 
+            | Yes, I read clearly
+            br
+            input(type="radio" name="1" value="2" required) 
+            | Yes, but I skimped
+            br
+            input(type="radio" name="1" value="3" required) 
+            |  No, I did not read it
+            br
+            input.uk-form-width-large(type="text" name="1b" placeholder="Please state why"  required)
+            br
+        .uk-form-row
+            h3 Did you understand JimmySearch’s Terms and Conditions?
+            input(type="radio" name="2" value="1" required) 
+            | Yes, very clearly
+            br
+            input(type="radio" name="2" value="2" required) 
+            | Yes, but not clearly
+            br
+            input(type="radio" name="2" value="3" required) 
+            |  Not applicable, I did not read it
+            br
+            input.uk-form-width-large(type="text" name="2b" placeholder="Please state why" required)
+            br
+        .uk-form-row
+            h3  Please provide ratings (from strongly agree to strongly disagree) for the following statements on sharing personal information with internet service companies.
+            h4 I am concerned about sharing my personal details when signing up for online accounts.
+            input(type="radio" name="3a" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="3a" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="3a" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="3a" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="3a" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+            h4 I am concerned about how internet service companies use my private data.
+            input(type="radio" name="3b" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="3b" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="3b" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="3b" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="3b" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+            h4 Internet service companies are not transparent about how they handle customers’personal information.
+            input(type="radio" name="3c" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="3c" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="3c" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="3c" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="3c" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+            h4 Internet service companies are not to be trusted when it comes to handling customers personal information.
+            input(type="radio" name="3d" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="3d" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="3d" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="3d" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="3d" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+        .uk-form-row
+            h3 Please provide ratings (from strongly agree to strongly disagree) for the following statements about company privacy policy.
+            br
+            h4 When signing up for online accounts (e.g. Google account), I usually read the terms and conditions.
+            input(type="radio" name="4a" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="4a" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="4a" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="4a" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="4a" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+            h4 When signing up for online accounts (e.g. Google account), I think it is important to read the terms and conditions.
+            input(type="radio" name="4b" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="4b" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="4b" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="4b" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="4b" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+            h4 When signing up for accounts in person (e.g. signing up for a gym membership in person), I usually read the terms and conditions.
+            input(type="radio" name="4c" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="4c" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="4c" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="4c" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="4c" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+            h4 When signing up for accounts in person (e.g. signing up for a gym membership in person), I think it is important to read the terms and conditions.
+            input(type="radio" name="4d" value="strongly agree" required) 
+            | Strongly Agree
+            br
+            input(type="radio" name="4d" value="agree" required) 
+            | Agree
+            br
+            input(type="radio" name="4d" value="neutral" required) 
+            | Neutral
+            br
+            input(type="radio" name="4d" value="disagree" required) 
+            | Disagree
+            br
+            input(type="radio" name="4d" value="strongly disagree" required) 
+            | Strongly Disagree
+            br
+        .uk-form-row
+            h3 wefwedgweg?
+            input(type="text" name="5" required)  
+            br
+        .uk-form-row
+            h3 wefwedgweg?
+            input(type="text" name="6" required) 
+            br
+        .uk-form-row
+            h3 wefwedgweg?
+            input(type="text" name="7" required) 
+            br
+        .uk-form-row
+            h3 wefwedgweg?
+            input(type="text" name="8" required) 
+            br
+    
+        input(type="submit")
+
+script.
+    $('input:checked').length

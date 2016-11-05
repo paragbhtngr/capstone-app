@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  //- h1= title
+  //- p Welcome to #{title}
+
+  
+
+  div.uk-container-center.uk-grid-1-2(id="form-container")
+    
+    div(class='message')
+    include signup-form
+    button(class="uk-button" id="tncClicked") Continue
+      
+  div(id="tnc" class="uk-modal")
+    div(class="uk-modal-dialog")
+      div(id="tos-header" class="tos-header")
+        div(id="header-text-div") Privacy and Terms
+      
+      div(id="tos-text" class="tos-text-div")
+        div(class="tos-intro-text-div")
+          p By choosing “Agree” below you agree to JimmySearch’s Terms and Conditions, which describes how we process your information, including these points:
+          div(class="tos-intro-separator")      
+      div
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Data we process when you use JimmySearch
+        p We collect information about the services that you use and how you use them, like when you visit a website that uses our advertising services, or view and interact with our ads and content.
+        ul
+          li 
+            h4 Device information
+            p We collect device-specific information (such as your hardware model, operating system version, unique device identifiers. JimmySearch will not collect mobile network information. 
+          li
+            h4 Log information
+            p When you use our services or view content provided by JimmySearch, we automatically collect and store certain information in server logs. This includes:
+              ul
+                li details of how you used our service, such as your search queries.
+                li Internet protocol address.
+                li device event information such as crashes, system activity, hardware settings, browser type, browser language, the date and time of your request and referral URL
+                li cookies that may uniquely identify your browser or your JimmySearch Account.
+          li
+            h4 Location information
+            p We may collect and process information about your actual location. We use various technologies to determine location, including IP address, GPS, and other sensors that may, for example, provide JimmySearch with information on nearby devices, and Wi-Fi access points.
+
+          li
+            h4 Local storage
+            p We may collect and store information (including personal information) locally on your device using mechanisms such as browser web storage (including HTML 5) and application data caches.
+        
+        p We treat this data as personal information. You can control how we collect and use this data at “My Account”.
+        div(class="tos-par-separator")
+      
+      div
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Why we process it
+        p We process this data for the following purposes:
+        ul
+          li Deliver personalised ads on JimmySearch itself
+          li Deliver more useful, customised content such as more relevant search results;
+          li Improve the quality of our services and develop new ones;
+          li Improve security by protecting against fraud and abuse; and
+          li Conduct analytics and measurement to understand how our services are used.
+        div(class="tos-par-separator")
+      
+      div
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Combining data
+        p JimmySearch does not allow the same user to create multiple accounts. We however allow you to sign into your account across multiple devices. We also combine data across your devices for these purposes. For example, we show you ads based on information from your use of Search. We also combine data from many user’s search queries to build spell-correction models that we use across all of our services.
+        button(class="uk-button uk-modal-close" id="tncAccepted") Accept
+
+  include form-validation
+  
+  script.
+    $('#tncClicked').click(function(){
+      console.log('click dis');
+      $('#is-tnc-clicked').val("true");
+      $('#time-started').val($.now());
+    });
+
+    $('#tncAccepted').click(function(){
+      console.log('dis dude accepts shiz yo');
+      $('#time-accepted').val($.now());
+      console.log('Submitting form');
+      $('#signup-form')[0].submit();
+    });
+

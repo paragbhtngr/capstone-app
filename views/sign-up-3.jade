@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div
+    form(class="uk-form")
+      fieldset(data-uk-margin)
+        legend This is the legend
+        input(type="text" placeholder="Text Input")
+        input(type="number" placeholder="Number Input")
+        select
+          option Option 1
+          option Option 2
+  
+  a(href="#tnc" data-uk-modal) Please read the Terms and Conditions before proceeding
+  button(class="uk-button") Button
+      
+  div(id="tnc" class="uk-modal")
+    div(class="uk-modal-dialog")
+      p Please accept all the following
+      div(class="uk-accordion" data-uk-accordion)
+        h3(class="uk-accordion-title") Title 1
+        div(class="uk-accordion-content")
+          p This is some content you need to accept
+        h3(class="uk-accordion-title") Title 2
+        div(class="uk-accordion-content")
+          p This is some content you need to accept
+        h3(class="uk-accordion-title") Title 3
+        div(class="uk-accordion-content")
+          p This is some content you need to accept
+        h3(class="uk-accordion-title") Title 4
+        div(class="uk-accordion-content")
+          p This is some content you need to accept
+      button(class="uk-button uk-modal-close") Close
