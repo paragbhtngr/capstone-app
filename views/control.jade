@@ -24,42 +24,57 @@ block content
       
       div(id="tos-text" class="tos-text-div")
         div(class="tos-intro-text-div")
-          p By choosing “I agree” below you agree to Google’s #[a(class="link1" href="https://accounts.google.com/TOS?loc=SG&amp;hl=en" data-link="tos" target="_blank") Terms of Service].
-          p You also agree to our #[a(class="link1" href="https://accounts.google.com/TOS?loc=SG&amp;hl=en&amp;privacy=true" data-link="privacy" target="_blank") Privacy Policy], which describes how we process your information, including these key points:
-          div(class="tos-intro-separator")
-      
+          p By choosing “Agree” below you agree to JimmySearch’s Terms and Conditions, which describes how we process your information, including these points:
+          div(class="tos-intro-separator")      
       div
-        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Data we process when you use Google
+        div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Data we process when you use JimmySearch
+        p We collect information about the services that you use and how you use them, like when you visit a website that uses our advertising services, or view and interact with our ads and content.
         ul
-          li When you use Google services to do things like write a message in Gmail or comment on a YouTube video, we store the information you create.
-          li When you search for a restaurant on Google Maps or watch a video on YouTube, for example, we process information about that activity – including information like the video you watched, device IDs, IP addresses, cookie data, and location.
-          li We also process the kinds of information described above when you use apps or sites that use Google services like ads, Analytics, and the YouTube video player.
           li 
-        p Depending on your account settings, some of this data may be associated with your Google Account and we treat this data as personal information. You can control how we collect and use this data at My Account (myaccount.google.com)
+            h4 Device information
+            p We collect device-specific information (such as your hardware model, operating system version, unique device identifiers. JimmySearch will not collect mobile network information. 
+          li
+            h4 Log information
+            p When you use our services or view content provided by JimmySearch, we automatically collect and store certain information in server logs. This includes:
+              ul
+                li details of how you used our service, such as your search queries.
+                li Internet protocol address.
+                li device event information such as crashes, system activity, hardware settings, browser type, browser language, the date and time of your request and referral URL
+                li cookies that may uniquely identify your browser or your JimmySearch Account.
+          li
+            h4 Location information
+            p We may collect and process information about your actual location. We use various technologies to determine location, including IP address, GPS, and other sensors that may, for example, provide JimmySearch with information on nearby devices, and Wi-Fi access points.
+
+          li
+            h4 Local storage
+            p We may collect and store information (including personal information) locally on your device using mechanisms such as browser web storage (including HTML 5) and application data caches.
+        
+        p We treat this data as personal information. You can control how we collect and use this data at “My Account”.
         div(class="tos-par-separator")
       
       div
         div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Why we process it
-        p We process this data for the purposes described in 
-          a(class="link1" href="https://accounts.google.com/TOS?loc=SG&amp;hl=en&amp;privacy=true" data-link="privacy" target="_blank") our policy
-        p , including to:
+        p We process this data for the following purposes:
         ul
-          li Help our services deliver more useful, customized content such as more relevant search results;
+          li Deliver personalised ads on JimmySearch itself
+          li Deliver more useful, customised content such as more relevant search results;
           li Improve the quality of our services and develop new ones;
-          li Deliver personalized ads, both on Google services and on sites and apps that partner with Google;
           li Improve security by protecting against fraud and abuse; and
           li Conduct analytics and measurement to understand how our services are used.
         div(class="tos-par-separator")
       
       div
         div(class="cb-heading" data-style="heading" role="heading" aria-level="2") Combining data
-        p We also combine data among our services and across your devices for these purposes. For example, we show you ads based on information from your use of Search and Gmail, and we use data from trillions of search queries to build spell-correction models that we use across all of our services.
+        p JimmySearch does not allow the same user to create multiple accounts. We however allow you to sign into your account across multiple devices. We also combine data across your devices for these purposes. For example, we show you ads based on information from your use of Search. We also combine data from many user’s search queries to build spell-correction models that we use across all of our services.
 
   script.
     $('#tncAccepted').click(function(){
       console.log('Validating form now');
       if(isValid()){
-        $('#tncClicked').attr('data-uk-modal',"{target:'#tnc'}");
+        console.log('dis dude accepts shiz yo');
+      $('#time-accepted').val($.now());
+      console.log('Submitting form');
+      $('#signup-form')[0].submit();
       }
     });
 
@@ -151,11 +166,4 @@ block content
       console.log('click dis');
       $('#is-tnc-clicked').val("true");
       $('#time-started').val($.now());
-    });
-
-    $('#tncAccepted').click(function(){
-      console.log('dis dude accepts shiz yo');
-      $('#time-accepted').val($.now());
-      console.log('Submitting form');
-      $('#signup-form')[0].submit();
     });
