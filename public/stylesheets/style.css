@@ -34,14 +34,14 @@ a {
   margin: 20px;
 }
 
-#tncClicked {
+#tncClicked, .blue-button {
   margin-top: 20px;
   background-color: dodgerblue;
   color: white;
   text-shadow: none;
 }
 
-#tncClicked:hover {
+#tncClicked:hover, .blue-button:hover {
   background-color: deepskyblue; 
 }
 

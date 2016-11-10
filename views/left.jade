@@ -1,0 +1,23 @@
+div.left-img
+  h1(style="color: white; font-weight: bold;") JIMMY SEARCH
+  img(src="/images/Untitled-2.jpg" style="width:100%;")
+    
+  style.
+    body {
+      background-color: #62bdea;
+    }
+    
+    .left-img {
+      width: calc(100% - 800px);
+      max-width: 800px;
+      position: absolute;
+      text-align: center;
+      padding-left: 30px;
+      padding-top: 100px;
+    }
+    
+    @media screen and (max-width: 1000px){
+      .left-img {
+        display: none;
+      }
+    }

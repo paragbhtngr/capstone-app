@@ -10,3 +10,6 @@ formType,firstName,lastName,timeStarted,timeAccepted,duration,isTNCclicked,isDec
 2b,Parag,Bhatnagar,1477715714402,,-1477715714.402,true,false,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
 2b,Parag,Bhatnagar,1477715822690,1477715832572,9.882,true,false,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
 2c,Parag,Bhatnagar,1477716209170,1477716232988,23.818,true,,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
+2a,Felica,T,1478502340550,1478502375406,34.856,true,,4,3,4,5,4,3,2,1,2
+1a,Felicia,ebwk,1478507630246,1478507649462,19.216,true,,4,2,2,5,3,3,3,2,1
+undefined

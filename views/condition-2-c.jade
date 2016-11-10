@@ -4,12 +4,12 @@ block content
   //- h1= title
   //- p Welcome to #{title}
 
-  
+  include left
 
   div(id="form-container")
     div(class='message')
     include signup-form
-    button(class="uk-button" id="tncClicked" data-uk-modal="{target:'#tnc'}") Continue
+    button(class="uk-button" id="tncClicked") Continue
       
   div(id="tnc" class="uk-modal")
     div(class="uk-modal-dialog")
@@ -69,7 +69,7 @@ block content
           div(class="tos-par-separator")
 
         h3 Please type in the following sentence exactly into the input box:
-        p I have read, understood and accept the terms and conditions.
+        p(style="color:red;") I have read, understood and accept the terms and conditions.
 
         div(class='contract-message')
 
@@ -77,26 +77,7 @@ block content
           textarea(type="text" placeholder="Please type here" id="tnc-accept-type" class="uk-form-width-large")
         button(id="tncAccepted" class="uk-button") Proceed
 
-  script.
-    // Form validation
-    console.log('Validation Script loaded');
-    $('input').blur(function() {
-      if( !$(this).val() ) {
-        $(this).addClass('uk-form-danger');
-        $('.message').addClass('uk-alert').addClass('uk-alert-danger').html('<p> Required input missing! Please complete. </p>');
-      } else if( $(this).val() ) {
-        if($(this).hasClass('uk-form-danger')) {
-          $(this).removeClass('uk-form-danger');
-        }
-      }
-    });
-    $('input').focus(function() {
-      if( $(this).val() ) {
-        if($(this).hasClass('uk-form-danger')) {
-          $(this).removeClass('uk-form-danger');
-        }
-      }
-    });
+  include form-validation
   
   script.
 

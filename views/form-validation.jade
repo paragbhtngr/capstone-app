@@ -31,7 +31,7 @@ script.
           removeError( $(this) );
         } else {
           validity = false;
-          addError( $(this), "Please enter a password with that is at least 8 characters long, with 1 uppercase character, 1 number and 1 special character" )
+          addError( $(this), "Please enter a password with that is at least 6 characters long, with 1 uppercase character, 1 number and 1 special character" )
         }
       }
 
@@ -81,7 +81,7 @@ script.
   }
 
   var isValidPassword = function(pwd){
-    return (pwd.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")? true : false );
+    return (pwd.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})")? true : false );
   }
   var isValidDate = function(s) {
     var validity = true
@@ -94,23 +94,3 @@ script.
     return validity;
   } 
   
-//- script.
-//-   // Form validation
-//-   console.log('Validation Script loaded');
-//-   $('input').blur(function() {
-//-     if( !$(this).val() ) {
-//-       $(this).addClass('uk-form-danger');
-//-       $('.message').addClass('uk-alert').addClass('uk-alert-danger').html('<p> Required input missing! Please complete. </p>');
-//-     } else if( $(this).val() ) {
-//-       if($(this).hasClass('uk-form-danger')) {
-//-         $(this).removeClass('uk-form-danger');
-//-       }
-//-     }
-//-   });
-//-   $('input').focus(function() {
-//-     if( $(this).val() ) {
-//-       if($(this).hasClass('uk-form-danger')) {
-//-         $(this).removeClass('uk-form-danger');
-//-       }
-//-     }
-//-   });

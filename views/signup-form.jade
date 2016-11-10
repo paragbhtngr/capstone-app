@@ -3,23 +3,23 @@ form.uk-form.uk-form-stacked(id="signup-form" action="/receive-form-data" method
     fieldset(data-uk-margin)
         legend(style="text-align: center") Sign up for JimmySearch
         .uk-form-row
-            label.uk-form-label(for="form-firstname") Name
+            label.uk-form-label(for="form-firstname") Name * 
             input.uk-form-width-medium(type="text" name="first-name" id="form-firstname" placeholder="First Name" required minlength="2")
             input.uk-form-width-medium(type="text" name="last-name" id="form-lastname" placeholder="Last Name" required minlength="2")
         .uk-form-row
-            label.uk-form-label(for="form-username") Choose you username
+            label.uk-form-label(for="form-username") Choose you username * 
             input.uk-form-width-large(type="text" name="username" id="form-username" placeholder="username" maxlength="50" required minlength="5")
         .uk-form-row
-            label.uk-form-label( for="form-password") Create a password
+            label.uk-form-label( for="form-password") Create a password * 
             input.uk-form-width-large(type="password" name="password" id="form-password" maxlength="50" required)
         .uk-form-row
-            label.uk-form-label(for="form-passwordc") Confirm password
+            label.uk-form-label(for="form-passwordc") Confirm password * 
             input.uk-form-width-large(type="password" name="passwordc" id="form-passwordc" maxlength="50" required)
         .uk-form-row
-            label.uk-form-label(for="form-birthday") Birthday
+            label.uk-form-label(for="form-birthday") Birthday * 
             input.uk-form-width-large(type="text" name="dob" id="form-birthday" data-uk-datepicker="{format:'DD/MM/YYYY'}" placeholder="Date of Birth")
         .uk-form-row
-            label.uk-form-label Gender
+            label.uk-form-label Gender * 
             select.uk-form-width-large(name="gender" required)
                 option(value="male") Male
                 option(value="female") Female
