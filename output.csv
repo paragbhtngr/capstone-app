@@ -1,16 +1,2 @@
-formType,firstName,lastName,timeStarted,timeAccepted,duration,isTNCclicked,isDeclined,q1,q2,q3,q4,q5,q6,q7,q8,correct
-2a,Parag,Bhatnagar,,,0,,,3,2,2,2,3,3,2,2,2
-1a,Parag,Bhatnagar,1477714100242,1477714106468,6.226,true,,2,3,1,1,3,4,2,3,8
-1b,Parag,Bhatnagar,1477714230631,1477714232878,2.247,true,,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-1c,Parag,Bhatnagar,1477714315852,1477714325906,10.054,true,,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-1b,Parag,Bhatnagar,1477714369139,1477714373703,4.564,true,true,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2a,Parag,Bhatnagar,1477714468454,1477714479050,10.596,true,,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2b,Paragv,Bhatnagar,,,0,,true,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2b,Paragv,Bhatnagar,,,0,,true,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2b,Parag,Bhatnagar,1477715714402,,-1477715714.402,true,false,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2b,Parag,Bhatnagar,1477715822690,1477715832572,9.882,true,false,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2c,Parag,Bhatnagar,1477716209170,1477716232988,23.818,true,,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,0
-2a,Felica,T,1478502340550,1478502375406,34.856,true,,4,3,4,5,4,3,2,1,2
-1a,Felicia,ebwk,1478507630246,1478507649462,19.216,true,,4,2,2,5,3,3,3,2,1
-undefined1c,,Parag,Bhatnagar,1479250178971,1479250183140,4.169,,,2,3,3,4,2,2,2,1,3
-,2,undefined,2,undefined,agree,neutral,disagree,neutral,disagree,strongly disagree,neutral,neutral,wer,wer,ewtf,qgrfde,,,,
+formType,userID,firstName,lastName,timeStarted,timeAccepted,duration,isTNCclicked,isDeclined,q1,q2,q3,q4,q5,q6,q7,q8,correct
+1a,147925253098729746248,Parag,Bhatnagar,1479252555090,1479252556376,1.286,,,3,4,3,4,2,3,3,1,0
