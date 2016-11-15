@@ -3,4 +3,12 @@ extends layout
 block content
   h1 Please agree with the following to proceed with the experiment
 
-  a.uk-button(href="/instructions") I agree
+  a.uk-button(id="agree" href="/instructions") I agree
+  
+  script.
+    console.log('hello');
+    localStorage.preInstructionsStartTime = $.now();
+    $('#agree').click(function(){
+      localStorage.preInstructionsEndTime = $.now();
+    });
+  

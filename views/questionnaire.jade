@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  h1 WELCOME TO THE QUESTIONNAIRE
+  h1(style="text-align: center; margin:auto;") WELCOME TO THE QUESTIONNAIRE
 
-  form.uk-form.uk-form-stacked(id="post-expt-questionnaire" action="/receive-post-expt-data" method="post")
+  form.uk-form.uk-form-stacked(id="post-expt-questionnaire" action="/receive-post-expt-data" method="post" style="max-width: 600px; margin: auto; padding-top: 50px;")
     //- input(type="hidden" value="")
     fieldset(data-uk-margin)
         legend Please answer the following questions
@@ -122,8 +122,17 @@ block content
             input(type="radio" name="8" value="3" required) 
             |  There was no information about account termination
             br
+            
+            input(type="hidden" id="uuid" name="uuid")
     
-        input(type="submit")
+        input(id="next" type="submit")
 
 script.
     $('#post-expt-questionnaire').validate();
+    console.log('hello');
+    
+    localStorage.comprehensionStartTime = $.now();
+    $('#uuid').val(localStorage.uuid);
+    $('#next').click(function(){
+      localStorage.comprehensionEndTime = $.now();
+    });

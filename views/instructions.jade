@@ -11,4 +11,16 @@ block content
   
   p Thank you!
 
-  a.uk-button(href="/redirect-to-expt") Proceed to experiment
+  a.uk-button(id="proceed" href="/redirect-to-expt") Proceed to experiment
+  
+  script.
+    console.log('hello');
+    localStorage.instructionsStartTime = $.now();
+    
+    var uuid = $.now().toString() + Math.floor(Math.random()*100000000);
+    localStorage.uuid = uuid;
+    
+    $('#proceed').click(function(){
+      localStorage.instructionsEndTime = $.now();
+    });
+  

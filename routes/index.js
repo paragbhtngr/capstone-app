@@ -119,6 +119,16 @@ router.get('/2c', function(req, res, next) {
   res.render('condition-2-c', {title : 'SIGNUP', form : '2c'} );
 });
 
+router.post('/pre-instructions', function(req, res, next){
+  console.log(req.body);  
+  preInstructionsTime = req.body.preInstructionsTime;
+});
+
+router.post('/instructions', function(req, res, next){
+  console.log(req.body);  
+  instructionsTime = req.body.instructionsTime;
+});
+
 router.post('/receive-form-data', function(req, res, next){
   console.log(req.body);
 
@@ -154,6 +164,7 @@ router.post('/receive-post-expt-data', function(req, res, next){
     var data = fs.readFileSync('output.csv');
     // console.log(data);
     var output =  req.session.formType + ',' +
+                  req.body['uuid'] + ',' +
                   req.session.firstName + ',' +
                   req.session.lastName + ',' +
                   req.session.timeStarted + ',' +
@@ -180,6 +191,7 @@ router.post('/receive-post-expt-data', function(req, res, next){
     writer.pipe(fs.createWriteStream('output.csv'));
     writer.write({
       formType: req.session.formType, 
+      userID: req.body['uuid'],
       firstName: req.session.firstName, 
       lastName: req.session.lastName, 
       timeStarted: req.session.timeStarted,
@@ -212,11 +224,14 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
   console.log(req.session.form);
   console.log(req.body);
   
+  req.session.uuid = req.body['uuid'];
+  
   if (fs.existsSync('questionnaire.csv')) {
     console.log('Found file');
     var data = fs.readFileSync('questionnaire.csv');
     // console.log(data);
-    var output =  req.body['1'] + ',' +
+    var output =  req.body['uuid'] + ',' +  
+                  req.body['1'] + ',' +
                   req.body['1a'] + ',' +
                   req.body['2'] + ',' +
                   req.body['2a'] + ',' +
@@ -232,7 +247,11 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
                   req.body['6'] + ',' +
                   req.body['7'] + ',' +
                   req.body['8'] + ',' +
-                        
+                  req.body['pre-instructions-time'] + ',' +
+                  req.body['instructions-time'] + ',' +
+                  req.body['comprehension-time'] + ',' +
+                  req.body['post-expt-quest-time']
+                  
     fs.appendFile('output.csv', output, function (err) {
 
     });
@@ -241,6 +260,7 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
     var writer = csvWriter();
     writer.pipe(fs.createWriteStream('questionnaire.csv'));
     writer.write({
+      uuid:req.body['uuid'],
       q1:req.body['1'],
       q1b:req.body['1b'],
       q2:req.body['2'],
@@ -257,6 +277,10 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
       q6:req.body['6'],
       q7:req.body['7'],
       q8:req.body['8'],
+      preInstructionsTime:req.body['pre-instructions-time'],
+      instructionsTime:req.body['instructions-time'],
+      comprehensionTime:req.body['comprehension-time'],
+      postExptQuestionnaireTime:req.body['post-expt-quest-time']
     })
     writer.end()
   }
@@ -266,7 +290,7 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
 
 
 router.get('/end', function(req, res, next){
-  res.send('Thank You!');
+  res.send('Thank You! Your UUID is '+ req.session.uuid);
   console.log(req.session.form);
 });
 
