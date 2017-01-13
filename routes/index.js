@@ -243,14 +243,10 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
                   req.body['4b'] + ',' +
                   req.body['4c'] + ',' +
                   req.body['4d'] + ',' +
-                  req.body['5'] + ',' +
-                  req.body['6'] + ',' +
-                  req.body['7'] + ',' +
-                  req.body['8'] + ',' +
                   req.body['pre-instructions-time'] + ',' +
                   req.body['instructions-time'] + ',' +
                   req.body['comprehension-time'] + ',' +
-                  req.body['post-expt-quest-time']
+                  req.body['post-expt-quest-time'] + '\n';
                   
     fs.appendFile('questionnaire.csv', output, function (err) {
 
@@ -273,10 +269,6 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
       q4b:req.body['4b'],
       q4c:req.body['4c'],
       q4d:req.body['4d'],
-      q5:req.body['5'],
-      q6:req.body['6'],
-      q7:req.body['7'],
-      q8:req.body['8'],
       preInstructionsTime:req.body['pre-instructions-time'],
       instructionsTime:req.body['instructions-time'],
       comprehensionTime:req.body['comprehension-time'],
@@ -290,7 +282,11 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
 
 
 router.get('/end', function(req, res, next){
-  res.send('Thank You! Your UUID is '+ req.session.uuid);
+  res.send(
+    'Thank you! Your Experiment code is ' + 
+    req.session.uuid + 
+    '. Please copy-and-paste it into the box on the Amazon MTurk window in order to receive credit for taking our experiment. '
+    );
   console.log(req.session.form);
 });
 

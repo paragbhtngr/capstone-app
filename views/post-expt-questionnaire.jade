@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1(style="text-align: center; margin:auto;") WELCOME TO THE POST EXPT QUESTIONNAIRE
+  h1(style="text-align: center; margin:auto;") POST-EXPERIMENT QUESTIONNAIRE
 
   form.uk-form.uk-form-stacked(id="post-expt-questionnaire" action="/receive-post-expt-quest-data" method="post" style="max-width: 600px; margin: auto; padding-top: 50px;")
     //- input(type="hidden" value="")
     fieldset(data-uk-margin)
-        legend Please answer the following questions
+        legend We would like to understand your experience with the entire sign up process. Please answer all of the following questions.
         .uk-form-row(style="padding-top: 20px;")
             h3(style="font-weight: bold;")  Did you read JimmySearch’s Terms and Conditions?
             input(type="radio" name="1" value="1" required) 
@@ -175,21 +175,6 @@ block content
                 input(type="radio" name="4d" value="strongly disagree" required) 
                 | Strongly Disagree
                 br
-        .uk-form-row(style="padding-top: 20px;")
-            h3 wefwedgweg?
-            input.uk-form-width-large(type="text" name="5" required)  
-            br
-        .uk-form-row(style="padding-top: 20px;")
-            h3 wefwedgweg?
-            input.uk-form-width-large(type="text" name="6" required) 
-            br
-        .uk-form-row(style="padding-top: 20px;")
-            h3 wefwedgweg?
-            input.uk-form-width-large(type="text" name="7" required) 
-            br
-        .uk-form-row(style="padding-top: 20px;")
-            h3 wefwedgweg?
-            input.uk-form-width-large(type="text" name="8" required) 
             br
         
             input(type="hidden" id="uuid" name="uuid" required)

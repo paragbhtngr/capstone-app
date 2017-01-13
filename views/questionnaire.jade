@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1(style="text-align: center; margin:auto;") WELCOME TO THE QUESTIONNAIRE
+  h1(style="text-align: center; margin:auto;") QUESTIONNAIRE SECTION
 
   form.uk-form.uk-form-stacked(id="post-expt-questionnaire" action="/receive-post-expt-data" method="post" style="max-width: 600px; margin: auto; padding-top: 50px;")
     //- input(type="hidden" value="")
     fieldset(data-uk-margin)
-        legend Please answer the following questions
+        legend We would like to gauge your understanding of the privacy and terms section that you have just accepted. Please answer the following questions.
         .uk-form-row
             h3(style="font-weight:bold;") What data by default does JimmySearch not collect from users?
             input(type="radio" name="1" value="1" required) 
@@ -79,12 +79,6 @@ block content
             br
             input(type="radio" name="5" value="3" required) 
             |  Yes, I can.
-            br
-            input(type="radio" name="5" value="4" required) 
-            |  This is the fourth option for this question.
-            br
-            input(type="radio" name="5" value="5" required) 
-            |  This is the fifth option for this question.
         br
         .uk-form-row
             h3(style="font-weight:bold;") What profile visibility settings can you adjust on JimmySearch?
