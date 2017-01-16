@@ -6,11 +6,11 @@ var csv = require('csv');
 var csvWriter = require('csv-write-stream')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('pre-instructions', {title : 'PRE-INSTRUCTIONS'} );
-});
+// router.get('/', function(req, res, next) {
+//   res.render('pre-instructions', {title : 'PRE-INSTRUCTIONS'} );
+// });
 
-router.get('/instructions', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('instructions', {title : 'INSTRUCTIONS'} );
 });
 
@@ -282,11 +282,7 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
 
 
 router.get('/end', function(req, res, next){
-  res.send(
-    'Thank you! Your Experiment code is ' + 
-    req.session.uuid + 
-    '. Please copy-and-paste it into the box on the Amazon MTurk window in order to receive credit for taking our experiment. '
-    );
+  res.render('thanks', {pageData: {code : req.session.uuid}});
   console.log(req.session.form);
 });
 

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Debrief
+
+  p Thank you for participating in our experiment! In this study, you experienced a typical sign-up process on JimmySearch, a website interface designed specially for this experiment. We are investigating the sign-up process for search engines, specifically, how the design of Terms and Conditions influences engagement and understanding of the website’s privacy policy during online sign-ups. 
+  
+  p All participants were put through a mock sign-up process, but randomly assigned to be shown the “Privacy and Terms” in a specific design. We are interested in how you interacted with the different “Privacy and Terms” designs and how well you understood it. We wish to understand how we can improve designs in order to facilitate your engagement and understanding of privacy policy material. No personal detail that you have filled in will be collected and saved. 
+
+  p If you have further concerns or questions, please feel free to raise them to our Principal Investigator through Amazon’s Mechanical Turk.
+
+  div(style="border:2px solid black; padding-top: 10px; padding-left: 10px;")
+    p Your 
+      strong Experiment Code
+      |  is
+      span(style="font-weight: bold; color: red; display: inline;")  #{pageData.code}
+
+
+  p Please copy-and-paste it into the box on the Amazon Mechanical Turk window in order to receive credit for taking our experiment.
