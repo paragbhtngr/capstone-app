@@ -35,7 +35,7 @@ router.get('/redirect-to-expt', function(req, res, next){
       console.log("CURRENT INDEX",currentIndex);
       var goToURL;
       obj.array[currentIndex].num -= 1;
-      
+
       jsonfile.writeFile(file, obj, function (err) {
         console.error(err)
       });
@@ -51,23 +51,23 @@ router.get('/redirect-to-expt', function(req, res, next){
           break;
         case 2:
           goToURL = '/1b';
-          res.redirect(goToURL);        
+          res.redirect(goToURL);
           break;
         case 3:
           goToURL = '/1c';
-          res.redirect(goToURL);          
+          res.redirect(goToURL);
           break;
         case 4:
           goToURL = '/2a';
-          res.redirect(goToURL);                    
+          res.redirect(goToURL);
           break;
         case 5:
           goToURL = '/2b';
-          res.redirect(goToURL);          
+          res.redirect(goToURL);
           break;
         case 6:
           goToURL = '/2c';
-          res.redirect(goToURL);          
+          res.redirect(goToURL);
       }
       console.log(obj[1]);
 
@@ -77,10 +77,10 @@ router.get('/redirect-to-expt', function(req, res, next){
         "array": [
         {"num":100},
         {"num":100},
+        {"num":0},
         {"num":100},
         {"num":100},
-        {"num":100},
-        {"num":100},
+        {"num":0},
         {"num":100}
         ]};
       jsonfile.writeFile(file, obj, function (err) {
@@ -120,12 +120,12 @@ router.get('/2c', function(req, res, next) {
 });
 
 router.post('/pre-instructions', function(req, res, next){
-  console.log(req.body);  
+  console.log(req.body);
   preInstructionsTime = req.body.preInstructionsTime;
 });
 
 router.post('/instructions', function(req, res, next){
-  console.log(req.body);  
+  console.log(req.body);
   instructionsTime = req.body.instructionsTime;
 });
 
@@ -137,7 +137,7 @@ router.post('/receive-form-data', function(req, res, next){
   req.session.lastName = req.body['last-name'];
   req.session.timeStarted = req.body['time-started'];
   req.session.timeAccepted = req.body['time-accepted'];
-  req.session.duration = (req.body['time-accepted'] - req.body['time-started'])/1000; 
+  req.session.duration = (req.body['time-accepted'] - req.body['time-started'])/1000;
   req.session.isTNCclicked = req.body['is-tnc-clicked'];
   req.session.isDeclined = req.body['is-declined'];
   res.redirect('/quest');
@@ -158,7 +158,7 @@ router.post('/receive-post-expt-data', function(req, res, next){
       correctCount++;
     }
   }
-  
+
   if (fs.existsSync('output.csv')) {
     console.log('Found file');
     var data = fs.readFileSync('output.csv');
@@ -171,7 +171,7 @@ router.post('/receive-post-expt-data', function(req, res, next){
                   req.session.timeAccepted + ',' +
                   req.session.duration + ',' +
                   req.session.isTNCclicked + ',' +
-                  req.session.isDeclined + ',' +
+                  // req.session.isDeclined + ',' +
                   req.body['1'] + ',' +
                   req.body['2'] + ',' +
                   req.body['3'] + ',' +
@@ -181,7 +181,7 @@ router.post('/receive-post-expt-data', function(req, res, next){
                   req.body['7'] + ',' +
                   req.body['8'] + ',' +
                   correctCount + '\n';
-                        
+
     fs.appendFile('output.csv', output, function (err) {
 
     });
@@ -190,15 +190,15 @@ router.post('/receive-post-expt-data', function(req, res, next){
     var writer = csvWriter();
     writer.pipe(fs.createWriteStream('output.csv'));
     writer.write({
-      formType: req.session.formType, 
+      formType: req.session.formType,
       userID: req.body['uuid'],
-      firstName: req.session.firstName, 
-      lastName: req.session.lastName, 
+      firstName: req.session.firstName,
+      lastName: req.session.lastName,
       timeStarted: req.session.timeStarted,
       timeAccepted: req.session.timeAccepted,
       duration: req.session.duration,
       isTNCclicked: req.session.isTNCclicked,
-      isDeclined: req.session.isDeclined,
+      // isDeclined: req.session.isDeclined,
       q1:req.body['1'],
       q2:req.body['2'],
       q3:req.body['3'],
@@ -223,14 +223,14 @@ router.get('/post-expt-quest', function(req, res, next){
 router.post('/receive-post-expt-quest-data', function(req, res, next){
   console.log(req.session.form);
   console.log(req.body);
-  
+
   req.session.uuid = req.body['uuid'];
-  
+
   if (fs.existsSync('questionnaire.csv')) {
     console.log('Found file');
     var data = fs.readFileSync('questionnaire.csv');
     // console.log(data);
-    var output =  req.body['uuid'] + ',' +  
+    var output =  req.body['uuid'] + ',' +
                   req.body['1'] + ',' +
                   req.body['1a'] + ',' +
                   req.body['2'] + ',' +
@@ -247,7 +247,7 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
                   req.body['instructions-time'] + ',' +
                   req.body['comprehension-time'] + ',' +
                   req.body['post-expt-quest-time'] + '\n';
-                  
+
     fs.appendFile('questionnaire.csv', output, function (err) {
 
     });
