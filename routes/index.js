@@ -100,7 +100,7 @@ router.get('/1a', function(req, res, next) {
 });
 
 router.get('/1b', function(req, res, next) {
-  res.render('condition-1-b', {title : 'SIGNUP', form : '1b'} );
+  res.render('condition-1-b', {title : 'SIGNUP', form : '1c'} );
 });
 
 router.get('/1c', function(req, res, next) {
@@ -112,7 +112,7 @@ router.get('/2a', function(req, res, next) {
 });
 
 router.get('/2b', function(req, res, next) {
-  res.render('condition-2-b', {title : 'SIGNUP', form : '2b'} );
+  res.render('condition-2-b', {title : 'SIGNUP', form : '2c'} );
 });
 
 router.get('/2c', function(req, res, next) {
