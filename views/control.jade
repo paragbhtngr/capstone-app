@@ -101,7 +101,7 @@ block content
             removeError( $(this) );
           } else {
             validity = false;
-            addError( $(this), "Please enter a password with that is at least 6 characters long, with 1 uppercase character, 1 number and 1 special character" )
+            addError( $(this), "Please enter a password with that is at least 6 characters long, with 1 uppercase character, 1 number and 1 lowercase character" )
           }
         }
 
@@ -146,7 +146,7 @@ block content
     }
 
     var isValidPassword = function(pwd){
-      return (pwd.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})")? true : false );
+      return (pwd.match("^(?=.*[A-Z])(?=.*[0-9])(?=.{6,})")? true : false );
     }
     var isValidDate = function(s) {
       var validity = true
@@ -157,7 +157,7 @@ block content
         validity = (d < new Date($.now())) 
       }
       return validity;
-    } 
+    }  
   
   script.
     $('#is-tnc-clicked').val("false");
