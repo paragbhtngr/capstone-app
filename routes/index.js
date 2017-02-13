@@ -232,18 +232,18 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
     // console.log(data);
     var output =  req.body['uuid'] + ',' +
                   req.body['1'] + ',' +
-                  req.body['1a'] + ',' +
+                  req.body['1b'] + ',' +
                   req.body['2'] + ',' +
-                  req.body['2a'] + ',' +
+                  req.body['2b'] + ',' +
                   req.body['3a'] + ',' +
                   req.body['3b'] + ',' +
                   req.body['3c'] + ',' +
-                  req.body['3d'] + ',' +
                   req.body['4a'] + ',' +
                   req.body['4b'] + ',' +
                   req.body['4c'] + ',' +
                   req.body['4d'] + ',' +
-                  req.body['pre-instructions-time'] + ',' +
+                  req.body['5'] + ',' +
+                  req.body['5b'] + ',' +
                   req.body['instructions-time'] + ',' +
                   req.body['comprehension-time'] + ',' +
                   req.body['post-expt-quest-time'] + '\n';
@@ -264,12 +264,12 @@ router.post('/receive-post-expt-quest-data', function(req, res, next){
       q3a:req.body['3a'],
       q3b:req.body['3b'],
       q3c:req.body['3c'],
-      q3d:req.body['3d'],
       q4a:req.body['4a'],
       q4b:req.body['4b'],
       q4c:req.body['4c'],
       q4d:req.body['4d'],
-      preInstructionsTime:req.body['pre-instructions-time'],
+      q5:req.body['5'],
+      q5b:req.body['5b'],
       instructionsTime:req.body['instructions-time'],
       comprehensionTime:req.body['comprehension-time'],
       postExptQuestionnaireTime:req.body['post-expt-quest-time']
